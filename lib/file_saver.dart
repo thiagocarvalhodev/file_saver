@@ -275,13 +275,15 @@ class FileSaver {
   /// More Mimetypes will be added in future
   /// Note:- This Method only works on Android for time being and other platforms will be added soon
   Future<String> saveAs(
-      String name, Uint8List bytes, String ext, MimeType mimeType) async {
-    String _mimeType = _getType(mimeType);
+      String name, Uint8List bytes, String ext, String mimeType) async {
+    print(mimeType);
+    print(ext);
+    print(name);
     Map<dynamic, dynamic> data = {
-      'name': mimeType == MimeType.OTHER ? name + "." + ext : name,
+      'name': name,
       'ext': ext,
       'bytes': bytes,
-      'type': _mimeType
+      'type': mimeType
     };
     String _path = await _openFileManager(data);
     return _path;
