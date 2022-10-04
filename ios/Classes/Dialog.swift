@@ -13,7 +13,7 @@ class Dialog:NSObject, UIDocumentPickerDelegate {
     private var fileManager = FileManager.default
     private var bytes: [UInt8]?
     
-    func openFileManager(byteData: [UInt8],fileName: String, ext: String, result: @escaping FlutterResult){
+    func openFileManager(byteData: [UInt8],fileName: String, result: @escaping FlutterResult){
         self.result = result
         self.bytes = byteData
         guard let viewController = UIApplication.shared.keyWindow?.rootViewController else {
@@ -21,7 +21,8 @@ class Dialog:NSObject, UIDocumentPickerDelegate {
             return
         }
         let temp = NSTemporaryDirectory()
-        let fileURL = NSURL.fileURL(withPathComponents: [temp, fileName+"."+ext])
+        
+        let fileURL = NSURL.fileURL(withPathComponents: [temp, fileName])
         do {
                 let d = Data(bytes: byteData, count: byteData.count)
                 try d.write(to: fileURL!)

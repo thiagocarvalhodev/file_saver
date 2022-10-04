@@ -23,7 +23,7 @@ public class SwiftFileSaverPlugin: NSObject, FlutterPlugin {
             print("Invalid Arguments")
             result(FlutterError(code: "Invalid_Arguments", message: "Some Of the arguments are null", details: nil))
         }else{
-            dialog.openFileManager(byteData: params.bytes!, fileName: params.fileName!,ext: params.ext!, result: result)
+            dialog.openFileManager(byteData: params.bytes!, fileName: params.fileName!, result: result)
         }
     } else {
         result("iOS no supported method found")

@@ -274,14 +274,13 @@ class FileSaver {
   ///
   /// More Mimetypes will be added in future
   /// Note:- This Method only works on Android for time being and other platforms will be added soon
-  Future<String> saveAs(
-      String name, Uint8List bytes, String ext, String mimeType) async {
-    print(mimeType);
-    print(ext);
-    print(name);
+  Future<String> saveAs({
+    required String name,
+    required Uint8List bytes,
+    required String mimeType,
+  }) async {
     Map<dynamic, dynamic> data = {
       'name': name,
-      'ext': ext,
       'bytes': bytes,
       'type': mimeType
     };
